@@ -3,6 +3,9 @@ Get root on macOS 13.0.1 with [CVE-2022-46689](https://support.apple.com/en-us/H
 https://worthdoingbadly.com/macdirtycow/
 
 ## Usage
+
+> Note: only can overwrite file with read permission. e.g. cannot overwrite /etc/sudoers file.
+
 On a macOS 13.0.1 / 12.6.1 (or below) machine, run:
 
 ```
